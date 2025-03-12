@@ -1,0 +1,9 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - extension.neon
+parameters:
+    level: 8
+    phpVersion: 80200
+    paths:
+        - src
+    reportUnmatchedIgnoredErrors: false

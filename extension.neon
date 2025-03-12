@@ -1,0 +1,5 @@
+services:
+    -
+        class: Rudashi\PHPStan\MethodNotFoundExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension
