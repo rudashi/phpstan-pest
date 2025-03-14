@@ -14,12 +14,9 @@ use PHPStan\Reflection\ReflectionProvider;
 
 readonly class MethodNotFoundExtension implements MethodsClassReflectionExtension
 {
-    private ClassReflection $highOrder;
-
     public function __construct(
-        ReflectionProvider $reflectionProvider
+        private ReflectionProvider $reflectionProvider
     ) {
-        $this->highOrder = $reflectionProvider->getClass(HigherOrderCallables::class);
     }
 
     public function hasMethod(ClassReflection $classReflection, string $methodName): bool
@@ -28,13 +25,15 @@ readonly class MethodNotFoundExtension implements MethodsClassReflectionExtensio
             return false;
         }
 
-        return $this->highOrder->hasMethod($methodName);
+        return $this->reflectionProvider->getClass(HigherOrderCallables::class)->hasMethod($methodName);
     }
 
     public function getMethod(ClassReflection $classReflection, string $methodName): MethodReflection
     {
         return new FluentMethodReflection(
-            $this->highOrder->getMethod($methodName, new OutOfClassScope())
+            $this->reflectionProvider
+                ->getClass(HigherOrderCallables::class)
+                ->getMethod($methodName, new OutOfClassScope())
         );
     }
 }
