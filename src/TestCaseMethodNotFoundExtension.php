@@ -12,7 +12,7 @@ use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\MethodsClassReflectionExtension;
 use PHPStan\Reflection\ReflectionProvider;
 
-readonly class MethodNotFoundExtension implements MethodsClassReflectionExtension
+readonly class TestCaseMethodNotFoundExtension implements MethodsClassReflectionExtension
 {
     public function __construct(
         private ReflectionProvider $reflectionProvider

@@ -1,6 +1,6 @@
 services:
     -
-        class: Rudashi\PHPStan\MethodNotFoundExtension
+        class: Rudashi\PHPStan\TestCaseMethodNotFoundExtension
         tags:
             - phpstan.broker.methodsClassReflectionExtension
     -
