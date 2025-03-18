@@ -4,6 +4,10 @@ services:
         tags:
             - phpstan.broker.methodsClassReflectionExtension
     -
+        class: Rudashi\PHPStan\ExpectationMethodNotFoundExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension
+    -
         class: Rudashi\PHPStan\TestCasePropertyExtension
         tags:
             - phpstan.ignoreErrorExtension
