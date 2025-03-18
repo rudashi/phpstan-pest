@@ -7,3 +7,7 @@ services:
         class: Rudashi\PHPStan\TestCasePropertyExtension
         tags:
             - phpstan.ignoreErrorExtension
+    -
+        class: Rudashi\PHPStan\TestCaseMethodExtension
+        tags:
+            - phpstan.ignoreErrorExtension
