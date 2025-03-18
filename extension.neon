@@ -11,3 +11,7 @@ services:
         class: Rudashi\PHPStan\TestCaseMethodExtension
         tags:
             - phpstan.ignoreErrorExtension
+    -
+        class: Rudashi\PHPStan\ExpectationPropertyExtension
+        tags:
+            - phpstan.ignoreErrorExtension
