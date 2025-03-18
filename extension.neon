@@ -3,3 +3,7 @@ services:
         class: Rudashi\PHPStan\MethodNotFoundExtension
         tags:
             - phpstan.broker.methodsClassReflectionExtension
+    -
+        class: Rudashi\PHPStan\TestCasePropertyExtension
+        tags:
+            - phpstan.ignoreErrorExtension
