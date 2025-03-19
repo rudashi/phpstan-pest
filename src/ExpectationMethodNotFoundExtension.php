@@ -43,9 +43,10 @@ readonly class ExpectationMethodNotFoundExtension implements MethodsClassReflect
 
     public function getMethod(ClassReflection $classReflection, string $methodName): MethodReflection
     {
-        return new FluentMethodReflection($this->reflectionProvider
-            ->getClass(Expectation::class)
-            ->getMethod('toBeTrue', new OutOfClassScope())
+        return new FluentMethodReflection(
+            $this->reflectionProvider
+                ->getClass(Expectation::class)
+                ->getMethod('toBeTrue', new OutOfClassScope())
         );
     }
 }
