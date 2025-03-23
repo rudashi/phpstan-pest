@@ -8,14 +8,14 @@ services:
         tags:
             - phpstan.broker.methodsClassReflectionExtension
     -
-        class: Rudashi\PHPStan\TestCasePropertyExtension
+        class: Rudashi\PHPStan\TestCasePropertyIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
     -
-        class: Rudashi\PHPStan\TestCaseMethodExtension
+        class: Rudashi\PHPStan\TestMethodIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
     -
-        class: Rudashi\PHPStan\ExpectationPropertyExtension
+        class: Rudashi\PHPStan\ExpectationPropertyIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension

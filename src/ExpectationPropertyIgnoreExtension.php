@@ -16,7 +16,7 @@ use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\TypeCombinator;
 
-readonly class ExpectationPropertyExtension implements IgnoreErrorExtension
+readonly class ExpectationPropertyIgnoreExtension implements IgnoreErrorExtension
 {
     public function __construct(
         private ReflectionProvider $reflectionProvider
@@ -28,6 +28,7 @@ readonly class ExpectationPropertyExtension implements IgnoreErrorExtension
         if ($error->getIdentifier() !== 'property.notFound') {
             return false;
         }
+
         if (str_contains($error->getMessage(), Expectation::class)) {
             return $this->dontIgnorePestExpectation($node, $scope);
         }
@@ -49,7 +50,9 @@ readonly class ExpectationPropertyExtension implements IgnoreErrorExtension
             return $this->checkByInstanceOf($node->var, $node->name->name);
         }
 
-        $valueType = $scope->getType($node->var)->getObjectClassReflections()[1]->getActiveTemplateTypeMap()->getType('TValue');
+        $expectationClass = $scope->getType($node->var)->getObjectClassReflections();
+
+        $valueType = end($expectationClass)->getActiveTemplateTypeMap()->getType('TValue');
 
         if (! $valueType) {
             return false;

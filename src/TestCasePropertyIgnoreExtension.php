@@ -12,7 +12,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Node\PropertyAssignNode;
 use PHPUnit\Framework\TestCase;
 
-class TestCasePropertyExtension implements IgnoreErrorExtension
+class TestCasePropertyIgnoreExtension implements IgnoreErrorExtension
 {
     private static array $propertyCache = [];
 

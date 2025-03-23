@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi\PHPStan;
 
+use Pest\PendingCalls\TestCall;
 use PhpParser\Node;
 use PHPStan\Analyser\Error;
 use PHPStan\Analyser\IgnoreErrorExtension;
@@ -13,7 +14,7 @@ use PHPStan\Reflection\ReflectionProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionObject;
 
-readonly class TestCaseMethodExtension implements IgnoreErrorExtension
+readonly class TestMethodIgnoreExtension implements IgnoreErrorExtension
 {
     public function __construct(
         private ReflectionProvider $reflectionProvider,
@@ -26,7 +27,7 @@ readonly class TestCaseMethodExtension implements IgnoreErrorExtension
             return false;
         }
 
-        if (! str_contains($error->getMessage(), TestCase::class)) {
+        if (! $this->isTestClass($error->getMessage())) {
             return false;
         }
 
@@ -67,5 +68,10 @@ readonly class TestCaseMethodExtension implements IgnoreErrorExtension
         }
 
         return $classList;
+    }
+
+    private function isTestClass(string $errorMessage): true
+    {
+        return str_contains($errorMessage, TestCase::class) || str_contains($errorMessage, TestCall::class);
     }
 }
