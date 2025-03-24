@@ -1,3 +1,5 @@
+rules:
+    - Rudashi\PHPStan\Rules\NoFunctionRule
 services:
     -
         class: Rudashi\PHPStan\TestCaseMethodNotFoundExtension
@@ -19,3 +21,6 @@ services:
         class: Rudashi\PHPStan\ExpectationPropertyIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
+parameters:
+    bootstrapFiles:
+        - src/globalFunctions.php
