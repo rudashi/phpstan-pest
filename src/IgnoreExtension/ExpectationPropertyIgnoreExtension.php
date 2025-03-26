@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudashi\PHPStan;
+namespace Rudashi\PHPStan\IgnoreExtension;
 
 use Pest\Mixins\Expectation;
 use PhpParser\Node;

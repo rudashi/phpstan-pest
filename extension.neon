@@ -10,15 +10,15 @@ services:
         tags:
             - phpstan.broker.methodsClassReflectionExtension
     -
-        class: Rudashi\PHPStan\TestCasePropertyIgnoreExtension
+        class: Rudashi\PHPStan\IgnoreExtension\TestCasePropertyIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
     -
-        class: Rudashi\PHPStan\TestMethodIgnoreExtension
+        class: Rudashi\PHPStan\IgnoreExtension\TestMethodIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
     -
-        class: Rudashi\PHPStan\ExpectationPropertyIgnoreExtension
+        class: Rudashi\PHPStan\IgnoreExtension\ExpectationPropertyIgnoreExtension
         tags:
             - phpstan.ignoreErrorExtension
 parameters:

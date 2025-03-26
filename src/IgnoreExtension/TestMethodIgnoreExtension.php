@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudashi\PHPStan;
+namespace Rudashi\PHPStan\IgnoreExtension;
 
 use Pest\PendingCalls\TestCall;
 use PhpParser\Node;
@@ -70,7 +70,7 @@ readonly class TestMethodIgnoreExtension implements IgnoreErrorExtension
         return $classList;
     }
 
-    private function isTestClass(string $errorMessage): true
+    private function isTestClass(string $errorMessage): bool
     {
         return str_contains($errorMessage, TestCase::class) || str_contains($errorMessage, TestCall::class);
     }
